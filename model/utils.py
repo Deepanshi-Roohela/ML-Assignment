@@ -34,6 +34,7 @@ def load_and_prepare() -> Tuple[pd.DataFrame, pd.Series]:
         # Create a binary target
         df["target"] = (df["num"] > 0).astype(int)
         target_col = "target"
+        df.drop(columns=["num"],inplace=True)
     else:
         raise ValueError("Expected a 'target' or 'num' column in the dataset.")
 
